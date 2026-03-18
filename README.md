@@ -1,9 +1,9 @@
 
 # Pokédex Application - ReactJS & PokéAPI
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/24de1657-7525-430d-bbe7-e26a7ae7eee2" />
 
-Ce projet consiste en la création d'une application web dynamique permettant d'explorer l'univers Pokémon. Développée en ReactJS, l'application consomme les données de la PokéAPI (v2) et propose une interface moderne, fluide et responsive.
-
-Ce dépôt simule un environnement de travail collaboratif entre un développeur Front-end et un ingénieur DevOps.
+Ce projet consiste en la création d'une application web dynamique permettant d'explorer l'univers Pokémon. Développée en ReactJS, l'application consomme les données de la PokéAPI (v2) et propose une
+interface moderne, fluide et responsive.
 
 ## Technologies Utilisées
 
