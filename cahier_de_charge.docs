@@ -1,0 +1,159 @@
+## 1. Extension du Workflow Collaboration (GitHub Multi-Compte)
+
+Puisque vous jouez deux rôles, vous devez définir des règles de collaboration strictes sur votre dépôt GitHub.
+
+### Rôles et Permissions
+* **Compte DevOps (Admin/Maintainer) :** Propriétaire du dépôt. Responsable de la configuration de l'infrastructure, de la validation des Pull Requests (PR) et de la mise en place de la CI/CD.
+* **Compte Dev Front-end (Contributor) :** Responsable de l'écriture du code React, de la création des composants et de la consommation de l'API.
+
+### Stratégie de Branching (Git Flow simplifié)
+* `main` : Code de production stable (géré par DevOps).
+* `develop` : Branche d'intégration pour les fonctionnalités (gérée par Front-end).
+* `feature/nom-tâche` : Branches temporaires pour chaque fonctionnalité (ex: `feature/search-bar`).
+
+---
+
+## 2. Spécifications Techniques DevOps (Ajout)
+
+Le rôle DevOps ne se limite pas au déploiement ; il garantit la **qualité** et la **disponibilité**.
+
+* **CI/CD (GitHub Actions) :** * Automatisation des tests à chaque `push` sur `develop`.
+    * Déploiement automatique sur Vercel/Netlify lors du `merge` sur `main`.
+* **Qualité du Code (Linters) :**
+    * Configuration de **ESLint** et **Prettier** pour uniformiser le code.
+    * Utilisation de **Husky** (Git Hooks) pour empêcher le commit si le code contient des erreurs.
+* **Performance & SEO :**
+    * Mise en place de tests **Lighthouse** pour vérifier l'accessibilité et la performance mobile.
+
+
+
+---
+
+## 3. Détails des Fonctionnalités (Amélioration Front-end)
+
+Pour rendre l'application plus robuste, précisons certains comportements :
+
+* **Gestion des Erreurs (Error Boundaries) :** Afficher un message "Pokémon non trouvé" ou une page 404 personnalisée en cas d'échec de l'API.
+* **Caching :** Utilisation de **React Query** (ou SWR) au lieu de simples `useEffect` pour mettre en cache les données de la PokéAPI et éviter les appels inutiles.
+* **Skeleton Screens :** Au lieu d'un simple "Loader", utilisez des formes grises animées (skeletons) qui imitent la structure des cartes pendant le chargement.
+
+---
+
+## 4. Structure de Dossiers Optimisée
+
+```text
+/src
+  /api          # Configuration Axios/Fetch et appels PokéAPI
+  /assets       # Images, icônes, polices (ex: polices Pokemon)
+  /components   # Composants atomiques (Button, Card, Input)
+  /context      # Gestion de l'état (Favorites, Theme)
+  /hooks        # Hooks personnalisés (usePokemon, useLocalStorage)
+  /layout       # Wrappers (Navbar, Footer, MainLayout)
+  /pages        # Vues principales (Home, Details, Favorites)
+  /styles       # Fichiers globaux ou configuration Tailwind
+  /utils        # Fonctions de formatage (ex: capitaliser les noms)
+```
+
+---
+
+## 5. Nouveau Calendrier de Management (10 Jours)
+
+Voici comment répartir la charge de travail entre vos deux comptes :
+
+| Jour | Rôle DevOps | Rôle Dev Front-end |
+| :--- | :--- | :--- |
+| **1** | Initialisation du repo, config ESLint/Prettier. | Setup React, installation des dépendances. |
+| **2-3** | Setup GitHub Actions (Lint check). | Création de l'architecture et appels API de base. |
+| **4-5** | Surveillance des PR, gestion des merges. | Développement Liste + Pagination + Recherche. |
+| **6-7** | Optimisation du build (Vite/Webpack). | Page Détail + Design Responsive (Tailwind). |
+| **8-9** | Setup du déploiement continu (Vercel). | Logique des Favoris (LocalStorage) + Animations. |
+| **10** | Audit Lighthouse & Nettoyage final. | Tests unitaires (Jest) et documentation (README). |
+
+---
+
+C'est une excellente base pour un projet scolaire. Pour passer au niveau supérieur et simuler un environnement professionnel avec vos deux comptes (un **Dev Front-end** et un **DevOps**), nous allons structurer le cahier des charges avec une approche de **gestion de workflow Git** et de **qualité logicielle**.
+
+Voici une version enrichie et plus détaillée.
+
+---
+
+## 1. Extension du Workflow Collaboration (GitHub Multi-Compte)
+
+Puisque vous jouez deux rôles, vous devez définir des règles de collaboration strictes sur votre dépôt GitHub.
+
+### Rôles et Permissions
+* **Compte DevOps (Admin/Maintainer) :** Propriétaire du dépôt. Responsable de la configuration de l'infrastructure, de la validation des Pull Requests (PR) et de la mise en place de la CI/CD.
+* **Compte Dev Front-end (Contributor) :** Responsable de l'écriture du code React, de la création des composants et de la consommation de l'API.
+
+### Stratégie de Branching (Git Flow simplifié)
+* `main` : Code de production stable (géré par DevOps).
+* `develop` : Branche d'intégration pour les fonctionnalités (gérée par Front-end).
+* `feature/nom-tâche` : Branches temporaires pour chaque fonctionnalité (ex: `feature/search-bar`).
+
+---
+
+## 2. Spécifications Techniques DevOps (Ajout)
+
+Le rôle DevOps ne se limite pas au déploiement ; il garantit la **qualité** et la **disponibilité**.
+
+* **CI/CD (GitHub Actions) :** * Automatisation des tests à chaque `push` sur `develop`.
+    * Déploiement automatique sur Vercel/Netlify lors du `merge` sur `main`.
+* **Qualité du Code (Linters) :**
+    * Configuration de **ESLint** et **Prettier** pour uniformiser le code.
+    * Utilisation de **Husky** (Git Hooks) pour empêcher le commit si le code contient des erreurs.
+* **Performance & SEO :**
+    * Mise en place de tests **Lighthouse** pour vérifier l'accessibilité et la performance mobile.
+
+
+
+---
+
+## 3. Détails des Fonctionnalités (Amélioration Front-end)
+
+Pour rendre l'application plus robuste, précisons certains comportements :
+
+* **Gestion des Erreurs (Error Boundaries) :** Afficher un message "Pokémon non trouvé" ou une page 404 personnalisée en cas d'échec de l'API.
+* **Caching :** Utilisation de **React Query** (ou SWR) au lieu de simples `useEffect` pour mettre en cache les données de la PokéAPI et éviter les appels inutiles.
+* **Skeleton Screens :** Au lieu d'un simple "Loader", utilisez des formes grises animées (skeletons) qui imitent la structure des cartes pendant le chargement.
+
+---
+
+## 4. Structure de Dossiers Optimisée
+
+```text
+/src
+  /api          # Configuration Axios/Fetch et appels PokéAPI
+  /assets       # Images, icônes, polices (ex: polices Pokemon)
+  /components   # Composants atomiques (Button, Card, Input)
+  /context      # Gestion de l'état (Favorites, Theme)
+  /hooks        # Hooks personnalisés (usePokemon, useLocalStorage)
+  /layout       # Wrappers (Navbar, Footer, MainLayout)
+  /pages        # Vues principales (Home, Details, Favorites)
+  /styles       # Fichiers globaux ou configuration Tailwind
+  /utils        # Fonctions de formatage (ex: capitaliser les noms)
+```
+
+---
+
+## 5. Nouveau Calendrier de Management (10 Jours)
+
+Voici comment répartir la charge de travail entre vos deux comptes :
+
+| Jour | Rôle DevOps | Rôle Dev Front-end |
+| :--- | :--- | :--- |
+| **1** | Initialisation du repo, config ESLint/Prettier. | Setup React, installation des dépendances. |
+| **2-3** | Setup GitHub Actions (Lint check). | Création de l'architecture et appels API de base. |
+| **4-5** | Surveillance des PR, gestion des merges. | Développement Liste + Pagination + Recherche. |
+| **6-7** | Optimisation du build (Vite/Webpack). | Page Détail + Design Responsive (Tailwind). |
+| **8-9** | Setup du déploiement continu (Vercel). | Logique des Favoris (LocalStorage) + Animations. |
+| **10** | Audit Lighthouse & Nettoyage final. | Tests unitaires (Jest) et documentation (README). |
+
+---
+
+## 6. Critères d'Évaluation (Auto-Correction)
+
+Pour réussir votre devoir, assurez-vous de valider ces points :
+1.  **Zéro erreur console :** Aucun warning dans la console Chrome.
+2.  **Accessibilité :** Les images des Pokémon ont des balises `alt` correctes.
+3.  **Persistance :** Si je ferme mon navigateur, mes favoris sont toujours là.
+4.  **Historique Git :** Un historique propre avec des messages de commit clairs (ex: `feat: add search filter`).
